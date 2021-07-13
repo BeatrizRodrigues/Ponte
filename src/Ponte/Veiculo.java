@@ -1,12 +1,11 @@
 package Ponte;
 
 public class Veiculo extends Thread{
-	Buffer buffer;
+	Ponte ponte;
 	String tipo;
-	Veiculo vei;
 	
-	public Veiculo(Buffer carros, String tipo) {
-		this.buffer = carros;
+	public Veiculo(Ponte fila, String tipo) {
+		this.ponte = fila;
 		this.tipo = tipo;
 	}
 	
@@ -14,19 +13,19 @@ public class Veiculo extends Thread{
 	public void run() {
 		switch (tipo) {
 		case "Ambulancia":
-			this.setPriority(MAX_PRIORITY);
+			this.setPriority(10);
 			break;
 		case "Policia":
 			this.setPriority(9);
 			break;
-		case"comum":
-			this.setPriority(NORM_PRIORITY);
+		case"Comum":
+			this.setPriority(5);
 			break;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + tipo);
 		}
 		try {
-			buffer.adicionarCarro(tipo);
+			ponte.adicionarCarro(tipo);
 		} catch (InterruptedException e) {}
 		
 	}

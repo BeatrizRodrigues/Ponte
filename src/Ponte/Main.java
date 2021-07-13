@@ -1,24 +1,28 @@
 package Ponte;
 
+//import java.util.ArrayList;
+
 public class Main {
 	
 	public static void main(String[] args) {
-		Buffer buffer = new Buffer(5);
+		//ArrayList<Veiculo> fila = new ArrayList<>();
 		
-		Veiculo veiculo1 = new Veiculo(buffer, "comum");
-		Veiculo veiculo2 = new Veiculo(buffer, "Ambulancia");
-		Veiculo veiculo3 = new Veiculo(buffer, "comum");
-		Veiculo veiculo4 = new Veiculo(buffer, "Policia");
-		Veiculo veiculo5 = new Veiculo(buffer, "Ambulancia");
+		Ponte ponte = new Ponte();
 		
-		Ponte ponte = new Ponte(buffer);
-	
+		Veiculo veiculo1 = new Veiculo(ponte, "Comum");
+		Veiculo veiculo2 = new Veiculo(ponte, "Ambulancia");
+		Veiculo veiculo3 = new Veiculo(ponte, "Comum");
+		Veiculo veiculo4 = new Veiculo(ponte, "Policia");
+		Veiculo veiculo5 = new Veiculo(ponte, "Ambulancia");
+		Veiculo veiculo6 = new Veiculo(ponte, "Policia");
+		
+		ponte.start();
 		veiculo1.start();
 		veiculo2.start();
 		veiculo3.start();
 		veiculo4.start();
 		veiculo5.start();
+		veiculo6.start();
 		
-		ponte.start();
 	}
 }
